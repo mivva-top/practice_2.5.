@@ -228,7 +228,6 @@ class DrinkDatabase:
 
         return True, "Доступен"
 
-    # --- Продажи ---
     def sell_cocktail(self, cocktail_id: int) -> bool:
         cocktail = self.get_cocktail_by_id(cocktail_id)
         if not cocktail:
@@ -292,7 +291,7 @@ class DrinkDatabase:
 class DrinkApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🍸 I love drink - Учет напитков и коктейлей")
+        self.root.title(" I love drink - Учет напитков и коктейлей")
         self.root.geometry("1000x700")
         self.db = DrinkDatabase()
 
@@ -371,7 +370,7 @@ class DrinkApp:
 
     def create_sales_tab(self):
         tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="💰 Продажи")
+        self.notebook.add(tab, text=" Продажи")
 
         toolbar = tk.Frame(tab, bd=1, relief=tk.RAISED)
         toolbar.pack(side=tk.TOP, fill=tk.X, pady=5)
@@ -402,7 +401,7 @@ class DrinkApp:
 
     def create_reports_tab(self):
         tab = ttk.Frame(self.notebook)
-        self.notebook.add(tab, text="📊 Отчеты")
+        self.notebook.add(tab, text=" Отчеты")
 
         btn_frame = tk.Frame(tab)
         btn_frame.pack(pady=20)
@@ -661,7 +660,7 @@ class DrinkApp:
 
             self.sales_tree.insert("", tk.END, values=(
                 sale['id'],
-                " Коктейль" if sale['item_type'] == 'cocktail' else "🍷 Ингредиент",
+                " Коктейль" if sale['item_type'] == 'cocktail' else " Ингредиент",
                 name,
                 sale['quantity'],
                 f"{sale['total_price']} руб.",
@@ -726,4 +725,5 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
+
     main()
